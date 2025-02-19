@@ -215,20 +215,21 @@ function substituteWords(sentence, dictionary) {
     return modifiedSentence;
 }
 
-// const dictionary = [
-//     "кэш тую",
-//     "пэй24",
-//     "оной",
-//     "квикпэй",
-//     "куикпэй",
-//     "мегапэй",
-//     "мегапей",
-//     "эльсом",
-//     "элсом",
-//     "кейджи",
-//     "комиссии",
-//     "003"
-// ];
+const dictionary = [
+    "иджара",
+    "сукук",
+    "мушарака",
+    "такафул",
+    "истисна",
+    "мударабе",
+    "уль-фадль",
+    "мудараба",
+    "вакф",
+    "мушараке",
+    "рибу",
+    "закят",
+    "шариат"
+];
 
 const sentences = [
     "Что такое кештою?",
@@ -656,6 +657,11 @@ function handleResize() {
     } else {
         captionHtml.style.fontSize = '0.8em';
         captionHtml.style.padding = '12px';
+    }
+    if (windowWidth < 1200) {
+        console.log(windowWidth);
+        captionHtml.style.fontSize = '42px';
+        captionHtml.style.padding = '10px';
     }
 }
 
