@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .box {
+            position: absolute;
+            left: 80%;
+            bottom: 60px;
+            top: auto;
+            pointer-events: auto !important;
+        }
+
+        .main-container {
+            width: 100%;
+            display: flex;
+            /* z-index: 1; */
+            align-items: end;
+            height: 100%;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .main-container > div {
+            width: 100%;
+            position: relative;
+            pointer-events: auto !important;
+        }
+
+        #mic {
+            position: absolute;
+            top: 10px;
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            height: 60px;
+        }
+
+        .object {
+            display: flex;
+            flex: 0 1 100%;
+            justify-content: center;
+            align-items: center;
+            align-content: stretch;
+            pointer-events: auto !important;
+        }
+
+        .outline {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 8px solid #B5A4A4;
+            animation: pulse 3s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: 0;
+            position: absolute;
+            pointer-events: auto !important;
+        }
+
+        .button {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #50CDDD;
+            box-shadow: 0px 0px 80px #0084F9;
+            position: absolute;
+            pointer-events: auto !important;
+        }
+
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+                border: 65px solid #0B3082;
+            }
+            50% {
+                border: solid #A3FFC2;
+                opacity: 0.8;
+            }
+
+            90% {
+                transform: scale(3.2);
+                opacity: 0.2;
+                border: 3px solid #2E3CFF;
+            }
+            100% {
+                transform: scale(3.3);
+                opacity: 0;
+                border: 1px solid #7A89FF;
+            }
+        }
+
+        #delayed {
+            animation-delay: 1.5s;
+        }
+
+        #circlein {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #6BD6E1;
+            box-shadow: 0px -2px 15px #E0FF94;
+            position: absolute;
+        }
+
+        .mic-icon {
+            height: 60px;
+            position: absolute;
+            margin: 21px;
+        }
+
+        @media (max-width: 1024px) {
+            .button {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            #circlein {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .mic-icon {
+                margin: 0;
+            }
+        }
+
+        #caption {
+            display: block;
+            text-align: center;
+            font-size: 1.5em;
+            bottom: 0px;
+            position: static;
+            color: #ccc;
+            font-family: "Arial Black";
+            padding: 6px 6px;
+            background-color: rgba(9,9,9,0.7);
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .button, .outline {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .button, .outline {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .box {
+                position: absolute;
+                left: 50%;
+                z-index: 999;
+            }
+            .outline { 
+                border: 4px solid white;
+            }
+            .mic-icon {
+                fill: white !important;
+            }
+            #circlein {
+                background: black;
+                box-shadow: 0px -2px 15px white;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .button, .outline {
+                width: 20vw !important;
+                height: 20vw !important;
+            }
+            .mic-icon {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        @media (max-width: 170px) {
+            .button, .outline, .mic-icon {
+                display: none !important;
+            }
+            #caption {
+                display: none !important;
+            }
+            .outline { 
+                border: none;
+            }
+            .box {
+                position: absolute;
+                left: 80%;
+            }
+            .main-container {
+                height: 0px;
+            }
+        }
+
+
+    </style>
+    <title>Cash2u HIVA Integration DEMO</title>
+</head>
+<body>
+    <div class="main-container">
+        <div>
+            <div class="box" id="mic">
+                <div class="object">
+                    <div class="outline">
+                    </div>
+                    <div class="outline" id="delayed">
+                    </div>
+                    <div class="button">
+                    </div>
+                    <div class="button" id="circlein">
+                        <svg class="mic-icon" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000"
+                            enable-background="new 0 0 1000 1000" xml:space="preserve" style="fill:#1E2D70">
+            <g><path d="M500,683.8c84.6,0,153.1-68.6,153.1-153.1V163.1C653.1,78.6,584.6,10,500,10c-84.6,0-153.1,68.6-153.1,153.1v367.5C346.9,615.2,415.4,683.8,500,683.8z M714.4,438.8v91.9C714.4,649,618.4,745,500,745c-118.4,0-214.4-96-214.4-214.4v-91.9h-61.3v91.9c0,141.9,107.2,258.7,245,273.9v124.2H346.9V990h306.3v-61.3H530.6V804.5c137.8-15.2,245-132.1,245-273.9v-91.9H714.4z"/></g>
+            </svg>
+                    </div>
+                </div>
+            </div>
+            <div id="caption">_</div>
+        </div>
+    </div>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.129.0/build/three.module.js",
+          "three/examples/jsm/": "https://unpkg.com/three@0.129.0/examples/jsm/",
+          "firebase": "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+    <script src="public/qa.js"></script>
+    <script type="module" src="./3d.js" defer></script>
+</body>
+</html>
