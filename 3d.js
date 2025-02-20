@@ -239,13 +239,12 @@ const sentences = [
     "мегапей"
 ];
 
-const processedSentences = sentences.map(sentence => substituteWords(sentence, dictionary));
-console.log(processedSentences);
-
-
 
 let dictionary = new Set();
 dictionary = buildDictionary(qa, rustopwords);
+
+const processedSentences = sentences.map(sentence => substituteWords(sentence, dictionary));
+console.log(processedSentences);
 
 function buildDictionary(qaArray, stopwords) {
     const dictionary = new Set();
