@@ -192,9 +192,9 @@ function substituteWords(sentence, dictionary) {
     const words = sentence.split(" ");
     const modifiedWords = [];
 
-    // for (let i = 0; i < words.length; i++) {
-    //     words[i] = transliterate(words[i]);
-    // }
+    for (let i = 0; i < words.length; i++) {
+        words[i] = transliterate(words[i]);
+    }
 
     for (let word of words) {
         let minDistance = 5;
