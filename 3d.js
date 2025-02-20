@@ -587,6 +587,7 @@ recognition.onresult = function (event) {
     document.getElementById("caption").innerHTML = original_text;
     let text = removeStopwords(original_text.toLowerCase());
     let audio_answer_id = get_answer(text);
+    console.log(substituteWords(text, dictionary));
     if (audio_answer_id === undefined) audio_answer_id = get_answer(substituteWords(text, dictionary));
     if (audio_answer_id !== undefined) {
         set(ref(database, 'feedback/' + generateSessionId() ), {
