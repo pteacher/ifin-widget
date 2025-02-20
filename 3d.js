@@ -232,12 +232,17 @@ function substituteWords(sentence, dictionary) {
 // ];
 
 const sentences = [
-    "Что такое кештою?",
-    "Что такое кештую?",
-    "pay24 расскажи про это",
+    "Что такое суккуб?",
+    "Что такое джара?",
+    "что такое закят",
     "элсон",
     "мегапей"
 ];
+
+const processedSentences = sentences.map(sentence => substituteWords(sentence, dictionary));
+console.log(processedSentences);
+
+
 
 let dictionary = new Set();
 dictionary = buildDictionary(qa, rustopwords);
