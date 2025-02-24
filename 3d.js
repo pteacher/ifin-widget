@@ -213,7 +213,7 @@ function substituteWords(sentence, dictionary) {
 
         morpher.russian.declension(substitute).then(
         result => {
-          console.log(result.singular.nominative);
+          console.log(result);
         },
         error => {
           if (typeof error === 'MorpherError') {
