@@ -37,6 +37,7 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(windowWidth, windowHeight);
 renderer.domElement.style.backgroundColor = 'transparent';
 document.body.appendChild(renderer.domElement);
+const morpher = new Morpher();
 
 let isModal = false;
 
@@ -196,6 +197,8 @@ function substituteWords(sentence, dictionary) {
         words[i] = transliterate(words[i]);
     }
 
+
+
     for (let word of words) {
         let minDistance = 5;
         let substitute = word;
@@ -208,6 +211,19 @@ function substituteWords(sentence, dictionary) {
             }
         }
 
+        morpher.russian.declension(substitute).then(
+        result => {
+          console.log(result.singular.nominative);
+        },
+        error => {
+          if (typeof error === 'MorpherError') {
+            console.error(error.message + ' Код ошибки: ' + error.code);
+          } else {
+            console.error(error);
+          }
+        }
+        );
+        
         modifiedWords.push(substitute);
     }
 
